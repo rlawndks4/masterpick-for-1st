@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.752" height="33.748" viewBox="0 0 15.752 33.748">
+  <g id="thermometer-outline" transform="translate(-10.123 -1.125)">
+    <path id="패스_8918" data-name="패스 8918" d="M21.637,21.253a.563.563,0,0,1-.262-.475V5.625A3.375,3.375,0,0,0,18,2.25h0a3.375,3.375,0,0,0-3.375,3.375V20.779a.563.563,0,0,1-.261.474A6.856,6.856,0,0,0,11.257,27.3,6.75,6.75,0,0,0,24.75,27a6.855,6.855,0,0,0-3.113-5.747Z" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.25"/>
+    <path id="패스_8919" data-name="패스 8919" d="M18,7.875v17.46" transform="translate(0 1.665)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.25"/>
+    <path id="패스_8920" data-name="패스 8920" d="M21.375,27A3.375,3.375,0,1,1,18,23.625,3.375,3.375,0,0,1,21.375,27Z"/>
+  </g>
+</svg>

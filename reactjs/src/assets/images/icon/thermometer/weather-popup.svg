@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="168" viewBox="0 0 132 168">
+  <g id="그룹_2953" data-name="그룹 2953" transform="translate(-281 -354)">
+    <rect id="사각형_462" data-name="사각형 462" width="132" height="168" rx="10" transform="translate(281 354)" fill="#e4e4e4"/>
+    <g id="그룹_2952" data-name="그룹 2952">
+      <g id="sunny-outline" transform="translate(291.162 372)">
+        <path id="패스_8894" data-name="패스 8894" d="M18,3.375V5.336" transform="translate(-9.501 -3.375)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8895" data-name="패스 8895" d="M18,29.25v1.961" transform="translate(-9.501 -14.214)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8896" data-name="패스 8896" d="M27.343,7.658,25.956,9.045" transform="translate(-12.834 -5.169)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8897" data-name="패스 8897" d="M9.046,25.955,7.659,27.342" transform="translate(-5.17 -12.833)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8898" data-name="패스 8898" d="M31.211,18H29.25" transform="translate(-14.214 -9.501)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8899" data-name="패스 8899" d="M5.336,18H3.375" transform="translate(-3.375 -9.501)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8900" data-name="패스 8900" d="M27.343,27.343l-1.387-1.387" transform="translate(-12.834 -12.834)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8901" data-name="패스 8901" d="M9.046,9.046,7.659,7.659" transform="translate(-5.17 -5.17)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8902" data-name="패스 8902" d="M18.913,15.644a3.269,3.269,0,1,1-3.269-3.269A3.269,3.269,0,0,1,18.913,15.644Z" transform="translate(-7.145 -7.145)" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.25"/>
+      </g>
+      <text id="맑음_:_강력매수" data-name="맑음 : 강력매수" transform="translate(322 384)" fill="#2c2c2c" font-size="12" font-family="MalgunGothicBold, Malgun Gothic"><tspan x="0" y="0">맑음</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"> : </tspan><tspan y="0">강력매수</tspan></text>
+    </g>
+    <g id="그룹_2948" data-name="그룹 2948" transform="translate(0 1)">
+      <g id="partly-sunny-outline" transform="translate(290 401)">
+        <path id="패스_8903" data-name="패스 8903" d="M4.174,17.721a.657.657,0,0,0,.547-.541,5.336,5.336,0,0,1,5.23-4.805,4.873,4.873,0,0,1,4.584,3.176.647.647,0,0,0,.5.4,4.073,4.073,0,0,1,3.743,4.069,4.183,4.183,0,0,1-4.413,4.118H4.8c-2.022,0-3.677-1.009-3.677-3.236a3.278,3.278,0,0,1,3.049-3.185Z" transform="translate(-1.125 -7.145)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8904" data-name="패스 8904" d="M23.417,14.861A3.269,3.269,0,1,0,18.369,11.1" transform="translate(-8.348 -5.733)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8905" data-name="패스 8905" d="M32.625,14.625h1.308" transform="translate(-14.32 -8.088)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8906" data-name="패스 8906" d="M23.625,3.375V4.683" transform="translate(-10.55 -3.375)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8907" data-name="패스 8907" d="M15.67,6.67l.925.925" transform="translate(-7.218 -4.755)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8908" data-name="패스 8908" d="M30.914,6.67l-.925.925" transform="translate(-13.216 -4.755)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+      </g>
+      <text id="구름조금_:_매수" data-name="구름조금 : 매수" transform="translate(322 413)" fill="#2c2c2c" font-size="12" font-family="MalgunGothicBold, Malgun Gothic"><tspan x="0" y="0">구름조금</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"> : </tspan><tspan y="0">매수</tspan></text>
+    </g>
+    <g id="그룹_2949" data-name="그룹 2949" transform="translate(0 -3)">
+      <path id="패스_8909" data-name="패스 8909" d="M4.174,17.721a.657.657,0,0,0,.547-.541,5.336,5.336,0,0,1,5.23-4.805,4.873,4.873,0,0,1,4.584,3.176.647.647,0,0,0,.5.4,4.073,4.073,0,0,1,3.743,4.069,4.183,4.183,0,0,1-4.413,4.118H4.8c-2.022,0-3.677-1.009-3.677-3.236a3.278,3.278,0,0,1,3.049-3.185Z" transform="translate(289.747 423.125)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.25"/>
+      <text id="흐림_:_중립" data-name="흐림 : 중립" transform="translate(322 445)" fill="#2c2c2c" font-size="12" font-family="MalgunGothicBold, Malgun Gothic"><tspan x="0" y="0">흐림</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"> : </tspan><tspan y="0">중립</tspan></text>
+    </g>
+    <g id="그룹_2950" data-name="그룹 2950">
+      <g id="그룹_2947" data-name="그룹 2947" transform="translate(290 458)">
+        <path id="패스_8910" data-name="패스 8910" d="M4.174,17.721a.657.657,0,0,0,.547-.541,5.336,5.336,0,0,1,5.23-4.805,4.873,4.873,0,0,1,4.584,3.176.647.647,0,0,0,.5.4,4.073,4.073,0,0,1,3.743,4.069,4.183,4.183,0,0,1-4.413,4.118H4.8c-2.022,0-3.677-1.009-3.677-3.236a3.278,3.278,0,0,1,3.049-3.185Z" transform="translate(-1.125 -12.375)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8911" data-name="패스 8911" d="M10.482,6.323a1.213,1.213,0,0,1-1.3,1.3,1.213,1.213,0,0,1-1.3-1.3A4.78,4.78,0,0,1,9.1,3.97a.109.109,0,0,1,.165,0A4.78,4.78,0,0,1,10.482,6.323Z" transform="translate(-0.352 9.724)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8913" data-name="패스 8913" d="M9.476,5.4a.745.745,0,0,1-.8.8.745.745,0,0,1-.8-.8,2.935,2.935,0,0,1,.75-1.445.067.067,0,0,1,.1,0A2.935,2.935,0,0,1,9.476,5.4Z" transform="translate(3.31 9.304)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1.25"/>
+        <path id="패스_8914" data-name="패스 8914" d="M9.476,5.4a.745.745,0,0,1-.8.8.745.745,0,0,1-.8-.8,2.935,2.935,0,0,1,.75-1.445.067.067,0,0,1,.1,0A2.935,2.935,0,0,1,9.476,5.4Z" transform="translate(-3.009 9.304)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1.25"/>
+      </g>
+      <text id="약한비_:_매도" data-name="약한비 : 매도" transform="translate(322 470)" fill="#2c2c2c" font-size="12" font-family="MalgunGothicBold, Malgun Gothic"><tspan x="0" y="0">약한비</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"> : </tspan><tspan y="0">매도</tspan></text>
+    </g>
+    <g id="그룹_2951" data-name="그룹 2951">
+      <g id="umbrella-outline" transform="translate(291.162 489)">
+        <path id="패스_8915" data-name="패스 8915" d="M16.115,19.125v6.538a1.308,1.308,0,0,1-1.308,1.308h0A1.308,1.308,0,0,1,13.5,25.663" transform="translate(-7.616 -9.973)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8916" data-name="패스 8916" d="M20.373,13a8.5,8.5,0,0,0-17,0h0A2.774,2.774,0,0,1,7.3,13h0a3.2,3.2,0,0,1,4.181-.3l.4.3.4-.3a3.2,3.2,0,0,1,4.181.3h0A2.774,2.774,0,0,1,20.373,13Z" transform="translate(-3.375 -3.847)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+        <path id="패스_8917" data-name="패스 8917" d="M18,4.029V3.375" transform="translate(-9.501 -3.375)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+      </g>
+      <text id="비_:_강력매도" data-name="비 : 강력매도" transform="translate(322 501)" fill="#2c2c2c" font-size="12" font-family="MalgunGothicBold, Malgun Gothic"><tspan x="0" y="0">비</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"> : </tspan><tspan y="0">강력매도</tspan></text>
+    </g>
+  </g>
+</svg>

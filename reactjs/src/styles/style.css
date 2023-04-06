@@ -1,0 +1,189 @@
+body {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    /* Chrome, Safari, Opera*/
+    display: none;
+    width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+    /* Chrome, Safari, Opera*/
+    background: #FFB92B;
+}
+.show-scrollbar ::-webkit-scrollbar {
+    display: block !important;
+}
+
+.board-container {
+    width: 100%;
+}
+.slick-arrow{
+    display: none !important;
+}
+.slick-dots {
+    bottom: -15px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #FB8200 !important;
+}
+
+.scroll-css {}
+
+.scroll-css::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll-css::-webkit-scrollbar-thumb {
+    background-color: #FFB92B;
+}
+
+.scroll-css::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {}
+#editor{
+    position: relative !important;
+}
+.emoji-picker-react{
+    position: absolute !important;
+    z-index: 100;
+    top: 56px;
+    right: 36px;
+    display: none !important;
+}
+.menu-icon {
+    width: 2rem;
+    height: 1.5rem;
+    background: 50% no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.6rem;
+}
+
+#editor {
+    margin: 24px;
+}
+
+#board-content {
+    width: 2.2rem;
+    font-size: 2rem;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+#board-text {
+    font-size: 12px;
+}
+
+.subtype-container::-webkit-scrollbar {
+    display: none;
+}
+
+.note {
+    width: 100%;
+    margin: 16px 0;
+}
+
+div.note>img {
+    width: 100%;
+}
+
+div.note>p>img {
+    width: 100% !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bar {
+    flex: auto;
+    border: 1px solid transparent;
+    height: 7px;
+    background: linear-gradient(to right, #FFB92B, #FB8200);
+}
+
+.smaller-margin-right-content {
+    margin: 0 1rem 0 auto;
+}
+
+@media screen and (max-width:1200px) {}
+
+@media screen and (max-width:1150px) {}
+
+@media screen and (max-width:1000px) {
+    #editor {
+        margin: 16px auto;
+        width: 90%;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width:700px) {}
+
+@media screen and (max-width:600px) {
+    .prevArrow {
+        position: absolute;
+        top: 30vw;
+        left: 6px;
+        z-index: 2;
+        cursor: pointer;
+        font-size: 28px;
+        padding: 4px 6px 0px 3px;
+        border-radius: 50%;
+        background: #aaaaaa55;
+        color: #fff !important;
+
+    }
+
+    .nextArrow {
+        position: absolute;
+        top: 30vw;
+        right: 6px;
+        z-index: 2;
+        cursor: pointer;
+        font-size: 28px;
+        padding: 4px 4px 0px 5px;
+        border-radius: 50%;
+        background: #aaaaaa55;
+        color: #fff !important;
+
+    }
+
+    .progress-bar {
+        appearance: none;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+
+    }
+
+    .progress-bar::-webkit-progress-bar {
+        background: #f0f0f0;
+        border-radius: 0;
+    }
+
+    .progress-bar::-webkit-progress-value {
+        border-radius: 0;
+        background: #FB8200;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .smaller-margin-right-content {
+        margin: 0 0.5rem 0 auto;
+    }
+}
+.dark-mode {
+    background: #222 !important;
+    color: #fff !important;
+}
