@@ -35,11 +35,15 @@ const kakaoOpt = {
     clientId: '4a8d167fa07331905094e19aafb2dc47',
     redirectUri: 'http://172.30.1.19:8001/api/kakao/callback',
 };
+
 router.get('/', (req, res) => {
     console.log("back-end initialized")
     res.send('back-end initialized')
 });
 
+/*
+    회원가입 및 유저추가 기능입니다.
+*/
 const onSignUp = async (req, res) => {
     try {
 
@@ -110,6 +114,9 @@ const onSignUp = async (req, res) => {
         response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    아이디로 로그인 기능입니다.
+*/
 const onLoginById = async (req, res) => {
     try {
         let { id, pw } = req.body;
@@ -169,6 +176,9 @@ const onLoginById = async (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    sns 로그인 기능입니다.
+*/
 const onLoginBySns = (req, res) => {
     try {
         let { id, typeNum, name, nickname, phone, user_level, profile_img } = req.body;
@@ -214,14 +224,10 @@ const onLoginBySns = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const onLoginByPhone = (req, res) => {
-    try {
 
-    } catch (e) {
-        console.log(e)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    유저가 구독한 컨텐츠 불러오기 기능입니다.
+*/
 const getUserContent = (req, res) => {
     try {
         let { pk } = req.query;
@@ -245,6 +251,9 @@ const getUserContent = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    구독하기 기능입니다.
+*/
 const addSubscribe = (req, res) => {
     try {
         const { user_pk, master_pk } = req.body;
@@ -274,6 +283,9 @@ const addSubscribe = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    프로필 수정 기능입니다.
+*/
 const uploadProfile = (req, res) => {
     try {
         const image = '/image/' + req.file.fieldname + '/' + req.file.filename;
@@ -291,6 +303,9 @@ const uploadProfile = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    자신의 정보 수정 기능입니다.
+*/
 const editMyInfo = (req, res) => {
     try {
         let { pw, nickname, newPw, phone, id, type } = req.body;
@@ -379,10 +394,13 @@ const editMyInfo = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    회원 탈퇴 기능입니다.
+*/
 const onResign = (req, res) => {
     try {
-        let {id} = req.body;
-        db.query("DELETE FROM user_table WHERE id=?",[id],(err, result)=>{
+        let { id } = req.body;
+        db.query("DELETE FROM user_table WHERE id=?", [id], (err, result) => {
             if (err) {
                 console.log(err)
                 return response(req, res, -100, "서버 에러 발생", []);
@@ -395,6 +413,9 @@ const onResign = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+
+*/
 const kakaoCallBack = (req, res) => {
     try {
         const token = req.body.token;
@@ -417,8 +438,8 @@ const kakaoCallBack = (req, res) => {
             try {
                 const { data } = tmp;
                 const { id, properties } = data;
-                response(req, res, 100, "success", { id, properties});
-                
+                response(req, res, 100, "success", { id, properties });
+
             } catch (e) {
                 console.log(e);
                 response(req, res, -100, "서버 에러 발생", [])
@@ -448,6 +469,9 @@ const sendAligoSms = ({ receivers, message }) => {
         console.log('err', err);
     });
 }
+/*
+    문자발송 기능입니다.
+*/
 const sendSms = (req, res) => {
     try {
         let receiver = req.body.receiver;
@@ -465,6 +489,9 @@ const sendSms = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    휴대폰번호로 아이디 찾기 기능입니다.
+*/
 const findIdByPhone = (req, res) => {
     try {
         const phone = req.body.phone;
@@ -481,6 +508,9 @@ const findIdByPhone = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    아이디와 휴대폰 번호로 유저찾기 기능입니다.
+*/
 const findAuthByIdAndPhone = (req, res) => {
     try {
         const id = req.body.id;
@@ -502,6 +532,9 @@ const findAuthByIdAndPhone = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    아이디 존재여부 확인 기능입니다.
+*/
 const checkExistId = (req, res) => {
     try {
         const id = req.body.id;
@@ -523,6 +556,9 @@ const checkExistId = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    닉네임 존재여부 확인 기능입니다.
+*/
 const checkExistNickname = (req, res) => {
     try {
         const nickname = req.body.nickname;
@@ -544,6 +580,9 @@ const checkExistNickname = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    비밀번호 수정 기능입니다.
+*/
 const changePassword = (req, res) => {
     try {
         const id = req.body.id;
@@ -571,6 +610,9 @@ const changePassword = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    유저 토큰 디코딩 기능입니다.
+*/
 const getUserToken = (req, res) => {
     try {
         const decode = checkLevel(req.cookies.token, 0)
@@ -596,6 +638,9 @@ const getUserToken = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    로그아웃 기능입니다.
+*/
 const onLogout = (req, res) => {
     try {
         res.clearCookie('token')
@@ -607,6 +652,9 @@ const onLogout = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    유저 리스트 불러오기 기능입니다.
+*/
 const getUsers = (req, res) => {
     try {
         let sql = "SELECT * FROM user_table ";
@@ -656,6 +704,9 @@ const getUsers = (req, res) => {
     }
 }
 
+/*
+    유저 수정 기능입니다.
+*/
 const updateUser = (req, res) => {
     try {
         let { id, pw, name, nickname, phone, user_level, consulting_note, pk } = req.body;
@@ -701,15 +752,10 @@ const updateUser = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const getUserStatistics = (req, res) => {
-    try {
 
-    }
-    catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    대가 추가 기능입니다.
+*/
 const addMaster = (req, res) => {
     try {
         const name = req.body.name ?? "";
@@ -745,6 +791,9 @@ const addMaster = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    대가 수정 기능입니다.
+*/
 const updateMaster = (req, res) => {
     try {
         const name = req.body.name ?? "";
@@ -780,151 +829,10 @@ const updateMaster = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const addChannel = (req, res) => {
-    try {
-        const id = req.body.id ?? "";
-        const pw = req.body.pw ?? "";
-        const name = req.body.name ?? "";
-        const nickname = req.body.nickname ?? "";
-        const user_level = req.body.user_level ?? 25;
-        let image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-        let sql = "SELECT * FROM user_table WHERE id=?"
 
-        db.query(sql, [id], (err, result) => {
-            if (result.length > 0)
-                response(req, res, -200, "ID가 중복됩니다.", [])
-            else {
-                crypto.pbkdf2(pw, salt, saltRounds, pwBytes, 'sha512', async (err, decoded) => {
-                    // bcrypt.hash(pw, salt, async (err, hash) => {
-                    let hash = decoded.toString('base64')
+/*
 
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "비밀번호 암호화 도중 에러 발생", [])
-                    }
-
-                    sql = 'INSERT INTO user_table (id, pw, name, nickname, user_level, channel_img) VALUES (?, ?, ?, ?, ?, ?)'
-                    await db.query(sql, [id, hash, name, nickname, user_level, image], async (err, result) => {
-
-                        if (err) {
-                            console.log(err)
-                            response(req, res, -200, "fail", [])
-                        }
-                        else {
-                            await db.query("UPDATE user_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                                if (err) {
-                                    console.log(err)
-                                    response(req, res, -200, "fail", [])
-                                }
-                                else {
-                                    response(req, res, 200, "success", [])
-                                }
-                            })
-                        }
-                    })
-                })
-            }
-        })
-
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const updateChannel = (req, res) => {
-    try {
-        let nickname = req.body.nickname;
-        const pk = req.body.pk;
-        let image = "";
-        let columns = " nickname=? ";
-        let zColumn = [nickname];
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-            columns += ", channel_img=? ";
-            zColumn.push(image);
-        }
-        zColumn.push(pk);
-        db.query(`UPDATE user_table SET ${columns} WHERE pk=?`, zColumn, (err, result) => {
-            if (err) {
-                console.log(err)
-                response(req, res, -200, "fail", [])
-            }
-            else {
-                response(req, res, 200, "성공적으로 수정되었습니다.", [])
-            }
-        })
-
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const getHomeContent = (req, res) => {
-    try {
-        db.query('SELECT * FROM setting_table ORDER BY pk DESC LIMIT 1', async (err, result_1) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query('SELECT * FROM user_table WHERE user_level=30 ORDER BY sort DESC', async (err, result0) => {
-                    if (err) {
-                        console.log(err)
-                        return response(req, res, -200, "서버 에러 발생", [])
-                    } else {
-                        await db.query('SELECT pk, title, hash FROM oneword_table WHERE status=1 ORDER BY sort DESC LIMIT 1', async (err, result1) => {
-                            if (err) {
-                                console.log(err)
-                                return response(req, res, -200, "서버 에러 발생", [])
-                            } else {
-                                await db.query('SELECT pk, title, hash FROM oneevent_table WHERE status=1 ORDER BY sort DESC LIMIT 1', async (err, result2) => {
-                                    if (err) {
-                                        console.log(err)
-                                        return response(req, res, -200, "서버 에러 발생", [])
-                                    } else {
-                                        await db.query('SELECT pk, title, hash, main_img, font_color, background_color, date FROM issue_table WHERE status=1 ORDER BY sort DESC LIMIT 5', async (err, result3) => {
-                                            if (err) {
-                                                console.log(err)
-                                                return response(req, res, -200, "서버 에러 발생", [])
-                                            } else {
-                                                await db.query('SELECT pk, title, hash, main_img, font_color, background_color, date FROM theme_table WHERE status=1 ORDER BY sort DESC LIMIT 5', async (err, result4) => {
-                                                    if (err) {
-                                                        console.log(err)
-                                                        return response(req, res, -200, "서버 에러 발생", [])
-                                                    } else {
-                                                        await db.query('SELECT pk, title, font_color, background_color, link FROM video_table WHERE status=1 ORDER BY sort DESC LIMIT 5', async (err, result5) => {
-                                                            if (err) {
-                                                                console.log(err)
-                                                                return response(req, res, -200, "서버 에러 발생", [])
-                                                            } else {
-                                                                await db.query('SELECT pk, title, hash, main_img, font_color, background_color, date FROM strategy_table WHERE status=1 ORDER BY sort DESC LIMIT 3', async (err, result6) => {
-                                                                    if (err) {
-                                                                        console.log(err)
-                                                                        return response(req, res, -200, "서버 에러 발생", [])
-                                                                    } else {
-                                                                        return response(req, res, 100, "success", { setting: result_1[0], masters: result0, oneWord: result1[0], oneEvent: result2[0], issues: result3, themes: result4, videos: result5, strategies: result6 })
-                                                                    }
-                                                                })
-                                                            }
-                                                        })
-                                                    }
-                                                })
-                                            }
-                                        })
-                                    }
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        })
-
-
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+*/
 const getChannelList = (req, res) => {
     try {
         db.query("SELECT * FROM user_table WHERE user_level IN (25, 30) ", (err, result) => {
@@ -940,6 +848,9 @@ const getChannelList = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    비디오 불러오기 기능입니다.
+*/
 const getVideo = (req, res) => {
     try {
         const pk = req.params.pk;
@@ -969,125 +880,10 @@ const getVideo = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const getVideoContent = (req, res) => {
-    try {
-        const pk = req.query.pk;
-        let sql1 = `SELECT video_table.* , user_table.nickname, user_table.name FROM video_table LEFT JOIN user_table ON video_table.user_pk = user_table.pk WHERE video_table.pk=? LIMIT 1`;//비디오 정보
-        let sql2 = `SELECT video_relate_table.*, video_table.* FROM video_relate_table LEFT JOIN video_table ON video_relate_table.relate_video_pk = video_table.pk WHERE video_relate_table.video_pk=? `//관련영상
-        let sql3 = `SELECT video_table.pk, video_table.link, video_table.title, user_table.name, user_table.nickname FROM video_table LEFT JOIN user_table ON video_table.user_pk = user_table.pk ORDER BY sort DESC LIMIT 5`;//최신영상
-        if (req.query.views) {
-            db.query("UPDATE video_table SET views=views+1 WHERE pk=?", [pk], (err, result_view) => {
-                if (err) {
-                    console.log(err)
-                    response(req, res, -200, "서버 에러 발생", [])
-                } else {
-                }
-            })
-        }
-        db.query(sql1, [pk], async (err, result1) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query(sql2, [pk], async (err, result2) => {
-                    if (err) {
-                        console.log(err)
-                        return response(req, res, -200, "서버 에러 발생", [])
-                    } else {
-                        await db.query(sql3, async (err, result3) => {
-                            if (err) {
-                                console.log(err)
-                                return response(req, res, -200, "서버 에러 발생", [])
-                            } else {
-                                return response(req, res, 100, "success", {
-                                    video: result1[0],
-                                    relates: result2,
-                                    latests: result3
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const addOneWord = (req, res) => {
-    try {
-        const { title, hash, suggest_title, note, user_pk } = req.body;
-        let zColumn = [title, hash, suggest_title, note, user_pk];
-        let columns = "(title, hash, suggest_title, note, user_pk";
-        let values = "(?, ?, ?, ?, ?";
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-        } else {
-            image = req.body.url ?? "";
-        }
-        zColumn.push(image);
-        columns += ', main_img)'
-        values += ',?)'
-        db.query(`INSERT INTO oneword_table ${columns} VALUES ${values}`, zColumn, async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query("UPDATE oneword_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "fail", [])
-                    }
-                    else {
-                        response(req, res, 200, "success", [])
-                    }
-                })
 
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const addOneEvent = (req, res) => {
-    try {
-        const { title, hash, suggest_title, note, user_pk } = req.body;
-        let zColumn = [title, hash, suggest_title, note, user_pk];
-        let columns = "(title, hash, suggest_title, note, user_pk";
-        let values = "(?, ?, ?, ?, ?";
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-        } else {
-            image = req.body.url ?? "";
-        }
-        zColumn.push(image);
-        columns += ', main_img)'
-        values += ',?)'
-        db.query(`INSERT INTO oneevent_table ${columns} VALUES ${values}`, zColumn, async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", []);
-            } else {
-                await db.query("UPDATE oneevent_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "fail", [])
-                    }
-                    else {
-                        response(req, res, 200, "success", [])
-                    }
-                })
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    게시물 추가 기능입니다.
+*/
 const addItem = (req, res) => {
     try {
         const { title, hash, suggest_title, note, user_pk, table, category, font_color, background_color } = req.body;
@@ -1129,114 +925,10 @@ const addItem = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const addIssueCategory = (req, res) => {
-    try {
-        const { title, sub_title } = req.body;
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-        }
-        db.query("INSERT INTO issue_category_table (title,sub_title,main_img) VALUES (?,?,?)", [title, sub_title, image], async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", []);
-            } else {
-                await db.query("UPDATE issue_category_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "fail", [])
-                    }
-                    else {
-                        response(req, res, 200, "success", [])
-                    }
-                })
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const updateIssueCategory = (req, res) => {
-    try {
-        const { title, sub_title, pk } = req.body;
-        let zColumn = [title, sub_title];
-        let columns = " title=?, sub_title=? ";
 
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-            zColumn.push(image);
-            columns += ', main_img=? '
-        }
-        zColumn.push(pk)
-        db.query(`UPDATE issue_category_table SET ${columns} WHERE pk=?`, zColumn, (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", []);
-            } else {
-                return response(req, res, 100, "success", []);
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const addFeatureCategory = (req, res) => {
-    try {
-        const { title, sub_title } = req.body;
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-        }
-        db.query("INSERT INTO feature_category_table (title,sub_title,main_img) VALUES (?,?,?)", [title, sub_title, image], async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", []);
-            } else {
-                await db.query("UPDATE feature_category_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "fail", [])
-                    }
-                    else {
-                        response(req, res, 200, "success", [])
-                    }
-                })
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const updateFeatureCategory = (req, res) => {
-    try {
-        const { title, sub_title, pk } = req.body;
-        let zColumn = [title, sub_title];
-        let columns = " title=?, sub_title=? ";
-
-        let image = "";
-        if (req.file) {
-            image = '/image/' + req.file.fieldname + '/' + req.file.filename;
-            zColumn.push(image);
-            columns += ', main_img=? '
-        }
-        zColumn.push(pk)
-        db.query(`UPDATE feature_category_table SET ${columns} WHERE pk=?`, zColumn, (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", []);
-            } else {
-                return response(req, res, 100, "success", []);
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    게시물 수정 기능입니다.
+*/
 const updateItem = (req, res) => {
     try {
         const { title, hash, suggest_title, note, user_pk, table, category, font_color, background_color, pk } = req.body;
@@ -1268,6 +960,9 @@ const updateItem = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    게시물 불러오기 기능입니다.
+*/
 const getItem = (req, res) => {
     try {
         let table = req.query.table ?? "user";
@@ -1303,87 +998,9 @@ const getItem = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const addVideo = (req, res) => {
-    try {
-        const { user_pk, title, link, note, font_color, background_color, relate_video } = req.body;
-        db.query("INSERT INTO video_table (user_pk, title, link, note, font_color, background_color) VALUES (?, ?, ?, ?, ?, ?)", [user_pk, title, link, note, font_color, background_color], async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query("UPDATE video_table SET sort=? WHERE pk=?", [result?.insertId, result?.insertId], (err, resultup) => {
-                    if (err) {
-                        console.log(err)
-                        response(req, res, -200, "fail", [])
-                    }
-                })
-                let relate_videos = JSON.parse(relate_video)
-                if (relate_videos.length > 0) {
-                    let relate_list = [];
-                    for (var i = 0; i < relate_videos.length; i++) {
-                        relate_list[i] = [result?.insertId, relate_videos[i]];
-                    }
-                    await db.query("INSERT INTO video_relate_table (video_pk, relate_video_pk) VALUES ? ", [relate_list], async (err, result2) => {
-                        if (err) {
-                            console.log(err)
-                            return response(req, res, -200, "서버 에러 발생", [])
-                        } else {
-
-                        }
-                    })
-                } else {
-                    return response(req, res, 100, "success", [])
-                }
-            }
-        })
-    }
-    catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const updateVideo = (req, res) => {
-    try {
-        const { user_pk, title, link, note, font_color, background_color, relate_video, pk } = req.body;
-        db.query("UPDATE video_table SET user_pk=?, title=?, link=?, note=?, font_color=?, background_color=? WHERE pk=?", [user_pk, title, link, note, font_color, background_color, pk], async (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query("DELETE FROM video_relate_table WHERE video_pk=?", [pk], async (err, result1) => {
-                    if (err) {
-                        console.log(err)
-                        return response(req, res, -200, "서버 에러 발생", [])
-                    } else {
-                        let relate_videos = JSON.parse(relate_video)
-                        if (relate_videos.length > 0) {
-                            let relate_list = [];
-                            for (var i = 0; i < relate_videos.length; i++) {
-                                relate_list[i] = [pk, relate_videos[i]];
-                            }
-                            await db.query("INSERT INTO video_relate_table (video_pk, relate_video_pk) VALUES ? ", [relate_list], (err, result2) => {
-                                if (err) {
-                                    console.log(err)
-                                    return response(req, res, -200, "서버 에러 발생", [])
-                                } else {
-                                    return response(req, res, 100, "success", [])
-                                }
-                            })
-                        } else {
-                            return response(req, res, 100, "success", [])
-                        }
-
-                    }
-                })
-
-            }
-        })
-    }
-    catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    공지사항 추가 기능입니다.
+*/
 const addNotice = (req, res) => {
     try {
         const { title, note, url, user_pk } = req.body;
@@ -1410,6 +1027,9 @@ const addNotice = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    공지사항 수정 기능입니다.
+*/
 const updateNotice = (req, res) => {
     try {
         const { title, note, url, pk } = req.body;
@@ -1427,6 +1047,9 @@ const updateNotice = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    푸시알림 추가 기능입니다.
+*/
 const addAlarm = (req, res) => {
     try {
         // 바로할지, 0-1, 요일, 시간, 
@@ -1459,6 +1082,9 @@ const addAlarm = (req, res) => {
         response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    푸시알림 수정 기능입니다.
+*/
 const updateAlarm = (req, res) => {
     try {
         // 바로할지, 0-1, 요일, 시간, 
@@ -1478,6 +1104,9 @@ const updateAlarm = (req, res) => {
         response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    필독 추가 기능입니다.
+*/
 const addMustRead = (req, res) => {
     try {
         const { title, note, user_pk } = req.body;
@@ -1503,6 +1132,9 @@ const addMustRead = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    필독 수정 기능입니다.
+*/
 const updateMustRead = (req, res) => {
     try {
         const { title, note, pk } = req.body;
@@ -1520,6 +1152,9 @@ const updateMustRead = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    게시물 에디터 안에 이미지 추가 기능입니다.
+*/
 const addNoteImage = (req, res) => {
     try {
         console.log(req.file)
@@ -1534,90 +1169,10 @@ const addNoteImage = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const onSearchAllItem = (req, res) => {
-    try {
-        let keyword = req.query.keyword;
-        let sql = `SELECT pk, title, `
-        db.query(`SELECT pk, title, hash FROM oneword_table WHERE status=1 AND (title LIKE "%${keyword}%" OR hash LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result1) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                await db.query(`SELECT pk, title, hash FROM oneevent_table WHERE status=1 AND (title LIKE "%${keyword}%" OR hash LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result2) => {
-                    if (err) {
-                        console.log(err)
-                        return response(req, res, -200, "서버 에러 발생", [])
-                    } else {
-                        await db.query(`SELECT pk, title, hash, main_img, font_color, background_color, date FROM issue_table WHERE status=1 AND (title LIKE "%${keyword}%" OR hash LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result3) => {
-                            if (err) {
-                                console.log(err)
-                                return response(req, res, -200, "서버 에러 발생", [])
-                            } else {
-                                await db.query(`SELECT pk, title, hash, main_img, font_color, background_color, date FROM feature_table WHERE status=1 AND (title LIKE "%${keyword}%" OR hash LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result4) => {
-                                    if (err) {
-                                        console.log(err)
-                                        return response(req, res, -200, "서버 에러 발생", [])
-                                    } else {
-                                        await db.query(`SELECT pk, title, hash, main_img, font_color, background_color, date FROM theme_table WHERE status=1 AND (title LIKE "%${keyword}%" OR hash LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result5) => {
-                                            if (err) {
-                                                console.log(err)
-                                                return response(req, res, -200, "서버 에러 발생", [])
-                                            } else {
-                                                await db.query(`SELECT pk, title, font_color, background_color, link FROM video_table WHERE status=1 AND (title LIKE "%${keyword}%" OR note LIKE "%${keyword}%") ORDER BY sort DESC LIMIT 8`, async (err, result6) => {
-                                                    if (err) {
-                                                        console.log(err)
-                                                        return response(req, res, -200, "서버 에러 발생", [])
-                                                    } else {
-                                                        return response(req, res, 100, "success", { oneWord: result1, oneEvent: result2, issues: result3, features: result4, themes: result5, videos: result6 });
-                                                    }
-                                                })
-                                            }
-                                        })
-                                    }
-                                })
 
-                            }
-                        })
-                    }
-                })
-            }
-        })
-
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const getOneWord = (req, res) => {
-    try {
-        db.query("SELECT * FROM oneword_table ORDER BY sort DESC LIMIT 1", (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                return response(req, res, 100, "success", result[0])
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
-const getOneEvent = (req, res) => {
-    try {
-        db.query("SELECT * FROM oneevent_table ORDER BY sort DESC LIMIT 1", (err, result) => {
-            if (err) {
-                console.log(err)
-                return response(req, res, -200, "서버 에러 발생", [])
-            } else {
-                return response(req, res, 100, "success", result[0])
-            }
-        })
-    } catch (err) {
-        console.log(err)
-        return response(req, res, -200, "서버 에러 발생", [])
-    }
-}
+/*
+    대가 불러오기 기능입니다.
+*/
 const getMasterContent = (req, res) => {
     try {
         let { table, pk } = req.query;
@@ -1634,25 +1189,9 @@ const getMasterContent = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const getUserSubscribeMasters = (pk) => {
-    return new Promise((resolve, reject) => {
-        db.query("SELECT * FROM user_master_connect_table WHERE user_pk=?", [pk], (err, result, fields) => {
-            if (err) {
-                console.log(err)
-                reject({
-                    code: -200,
-                    result: []
-                })
-            }
-            else {
-                resolve({
-                    code: 200,
-                    result: result
-                })
-            }
-        })
-    })
-}
+/*
+    대가 콘텐츠 불러오기 기능입니다.
+*/
 const getMasterContents = async (req, res) => {
     try {
         let { table, pk, order, desc, is_subscribe, user_pk, overlap_list, status } = req.body;
@@ -1689,46 +1228,49 @@ const getMasterContents = async (req, res) => {
         let contents = await dbQueryList(sql);
         contents = contents?.result;
         let master = {};
-        if(pk){
+        if (pk) {
             master = await dbQueryList(`SELECT * FROM master_table WHERE pk=${pk}`);
             master = master?.result[0];
         }
-        
-        return response(req, res, 100, "success", {data:contents, master:master});
+
+        return response(req, res, 100, "success", { data: contents, master: master });
 
     } catch (err) {
         console.log(err)
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
-const updateMasterContent = async(req, res) => {
+/*
+    구독한 콘텐츠 수정 기능입니다.
+*/
+const updateMasterContent = async (req, res) => {
     try {
         let { list, columns, table, master_pk, } = req.body;
 
         if (!columns || !table || !master_pk) {
             return response(req, res, -100, "필요값이 비어있습니다.", [])
         } else {
-            if(typeof columns =='string'){
+            if (typeof columns == 'string') {
                 columns = JSON.parse(columns);
             }
-            if(typeof list =='string'){
+            if (typeof list == 'string') {
                 list = JSON.parse(list);
             }
             let joins = columns.join();
             db.beginTransaction();
-            if(req.file){
+            if (req.file) {
                 let image = '/image/' + req.file.fieldname + '/' + req.file.filename;
                 let image_sql = "";
-                if(table=='master_yield'){
+                if (table == 'master_yield') {
                     image_sql = `UPDATE master_table SET yield_banner=? WHERE pk=${master_pk}`;
                 }
-                if(table=='master_event'){
+                if (table == 'master_event') {
 
                 }
-                let image_result = await insertQuery(image_sql,[image]);
+                let image_result = await insertQuery(image_sql, [image]);
             }
-            let result1 = await insertQuery(`DELETE FROM ${table}_table WHERE master_pk=?`,[master_pk]);
-            let result2 = await insertQuery(`INSERT INTO ${table}_table (${joins}) VALUES ?`,[list]);
+            let result1 = await insertQuery(`DELETE FROM ${table}_table WHERE master_pk=?`, [master_pk]);
+            let result2 = await insertQuery(`INSERT INTO ${table}_table (${joins}) VALUES ?`, [list]);
 
             await db.commit();
             return response(req, res, 100, "success", []);
@@ -1739,6 +1281,9 @@ const updateMasterContent = async(req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    거장 구독 컨텐츠 추가 기능입니다.
+*/
 const addSubscribeContent = (req, res) => {
     try {
         let { name, base_price, capture_date, exchange_date, existing_possession, score, weather, master_pk, main_note, take_list, operating_profit_list, company_overview_note, investment_point_list, investment_point_note,
@@ -1796,6 +1341,9 @@ const addSubscribeContent = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    거장 구독 콘텐츠 수정 기능입니다.
+*/
 const updateSubscribeContent = (req, res) => {
     try {
         let sql = "";
@@ -1843,6 +1391,9 @@ const updateSubscribeContent = (req, res) => {
 }
 
 
+/*
+    게시물 리스트 불러오기 기능입니다.
+*/
 const getItems = (req, res) => {
     try {
         let { level, category_pk, status, user_pk, keyword, limit, page, page_cut, master_pk, order } = req.query;
@@ -1864,13 +1415,13 @@ const getItems = (req, res) => {
             whereStr += ` AND user_pk=${user_pk} `;
         }
         if (keyword) {
-            if(table=='user'){
+            if (table == 'user') {
                 whereStr += ` AND (id LIKE '%${keyword}%' OR name LIKE '%${keyword}%' OR nickname LIKE '%${keyword}%')`;
-            }else if(table=='master'){
+            } else if (table == 'master') {
                 whereStr += ` AND (name LIKE '%${keyword}%' OR motto LIKE '%${keyword}%')`;
-            }else if(table=='master_subscribe'){
+            } else if (table == 'master_subscribe') {
                 whereStr += ` AND (name LIKE '%${keyword}%')`;
-            }else{
+            } else {
                 whereStr += ` AND title LIKE '%${keyword}%' `;
             }
         }
@@ -1920,6 +1471,9 @@ const getItems = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    기본설정 불러오기 기능입니다.
+*/
 const getSetting = (req, res) => {
     try {
         db.query("SELECT * FROM setting_table ORDER BY pk DESC LIMIT 1", (err, result) => {
@@ -1935,6 +1489,9 @@ const getSetting = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    요소 삭제 기능입니다.
+*/
 const deleteItem = (req, res) => {
     try {
         let pk = req.body.pk ?? 0;
@@ -1954,6 +1511,9 @@ const deleteItem = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    홈 화면 불러오기 기능입니다.
+*/
 const getMainContent = (req, res) => {
     db.query("SELECT * FROM main_table ORDER BY pk DESC", (err, result) => {
         if (err) {
@@ -1964,6 +1524,9 @@ const getMainContent = (req, res) => {
         }
     })
 }
+/*
+    홈화면에 사용될 내용 수정 기능입니다.
+*/
 const editMainContent = (req, res) => {
     try {
         let { category, best_master_yield_list, recommendation_list, best_list, pk } = req.body;
@@ -2004,14 +1567,14 @@ const editMainContent = (req, res) => {
                 return response(req, res, 100, "success", [])
             } else {
                 sql = `UPDATE main_table SET `;
-                let img_name_list = ['banner','recommendation_banner','yield_banner'];
-                for(var i = 0;i<img_name_list.length;i++){
-                    if(req.files[img_name_list[i]]){
-                        if(zColumn.length>0){
+                let img_name_list = ['banner', 'recommendation_banner', 'yield_banner'];
+                for (var i = 0; i < img_name_list.length; i++) {
+                    if (req.files[img_name_list[i]]) {
+                        if (zColumn.length > 0) {
                             sql += ',';
                         }
                         sql += ` ${img_name_list[i]}_img=? `;
-                        let image =  '/image/' + req.files[img_name_list[i]][0].fieldname + '/' + req.files[img_name_list[i]][0].filename;
+                        let image = '/image/' + req.files[img_name_list[i]][0].fieldname + '/' + req.files[img_name_list[i]][0].filename;
                         zColumn.push(image);
                     }
                 }
@@ -2048,6 +1611,9 @@ const editMainContent = (req, res) => {
     }
 }
 
+/*
+    기본설정 수정 기능입니다.
+*/
 const updateSetting = (req, res) => {
     try {
         const pk = req.body.pk;
@@ -2084,6 +1650,9 @@ const updateSetting = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    상태값 변경 기능입니다.
+*/
 const updateStatus = (req, res) => {
     try {
         const { table, pk, num } = req.body;
@@ -2101,6 +1670,9 @@ const updateStatus = (req, res) => {
     }
 }
 
+/*
+    게시물 맨위로 올리기 기능입니다.
+*/
 const onTheTopItem = (req, res) => {
     try {
         console.log(req.body)
@@ -2133,6 +1705,9 @@ const onTheTopItem = (req, res) => {
         return response(req, res, -200, "서버 에러 발생", [])
     }
 }
+/*
+    게시물 순서 변경 기능입니다.
+*/
 const changeItemSequence = (req, res) => {
     try {
         console.log(req.body)
@@ -2171,8 +1746,8 @@ const changeItemSequence = (req, res) => {
 }
 module.exports = {
     onLoginById, getUserToken, onLogout, checkExistId, checkExistNickname, sendSms, kakaoCallBack, editMyInfo, uploadProfile, onLoginBySns,//auth
-    getUsers, getOneWord, getOneEvent, getItems, getItem, getHomeContent, getSetting, getVideoContent, getChannelList, getVideo, onSearchAllItem, findIdByPhone, findAuthByIdAndPhone, getMasterContents, getMainContent, getUserContent, getMasterContent,//select
-    addMaster, onSignUp, addOneWord, addOneEvent, addItem, addIssueCategory, addNoteImage, addVideo, addChannel, addFeatureCategory, addNotice, addSubscribeContent, addSubscribe, addMustRead, addAlarm, //insert 
-    updateUser, updateItem, updateIssueCategory, updateVideo, updateMaster, updateSetting, updateStatus, updateChannel, updateFeatureCategory, updateNotice, onTheTopItem, changeItemSequence, changePassword, updateMasterContent, updateSubscribeContent, editMainContent, updateMustRead, updateAlarm,//update
+    getUsers, getItems, getItem, getSetting, getChannelList, getVideo,  findIdByPhone, findAuthByIdAndPhone, getMasterContents, getMainContent, getUserContent, getMasterContent,//select
+    addMaster, onSignUp,  addItem,  addNoteImage,  addNotice, addSubscribeContent, addSubscribe, addMustRead, addAlarm, //insert 
+    updateUser, updateItem,  updateMaster, updateSetting, updateStatus, updateNotice, onTheTopItem, changeItemSequence, changePassword, updateMasterContent, updateSubscribeContent, editMainContent, updateMustRead, updateAlarm,//update
     deleteItem, onResign
 };
